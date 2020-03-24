@@ -7,7 +7,7 @@ const PORT = 4000;
 
 // database
 
-// const db = require('./models');
+const db = require('./models');
 
 //routes
 
