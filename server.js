@@ -7,19 +7,24 @@ const PORT = 4000;
 
 // database
 
-const db = require('./models');
+// const db = require('./models');
 
 //routes
 
-const routes = require('./routes');
+// const routes = require('./routes');
 
 // middleware
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json());
 
 // routes
-app.use('/', routes.views);
-app.use('/api/v1/', routes.api);
+app.get('/', (req, res) => {
+	res.status(302);
+})
+
+
+// app.use('/', routes.views);
+// app.use('/api/v1/', routes.api);
 
 // -------------------------------------- START SERVER -------------------------------------- //
 
