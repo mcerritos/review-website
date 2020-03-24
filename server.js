@@ -11,19 +11,19 @@ const PORT = 4000;
 
 //routes
 
-// const routes = require('./routes');
+ const routes = require('./routes');
 
 // middleware
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json());
 
 // routes
-app.get('/', (req, res) => {
-	res.status(302);
-})
+// app.get('/', (req, res) => {
+// 	res.status(302);
+// })
 
 
-// app.use('/', routes.views);
+ app.use('/', routes.views);
 // app.use('/api/v1/', routes.api);
 
 // -------------------------------------- START SERVER -------------------------------------- //
