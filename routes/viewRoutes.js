@@ -34,14 +34,14 @@ router.get('/games/:gameId',(req,res)=>{
 //TODO:every thing of review
 
 //new review page view
-router.get('/games/:gameId/review/new',(req,res)=>{
+router.get('/games/:gameId/reviews/new',(req,res)=>{
 	res.sendFile('#',{
 		root:__dirname+'/../',
 	});
 });
 
 //review edit view
-router.get('/games/:gameId/review/:reviewId',(req,res)=>{
+router.get('/games/:gameId/reviews/:reviewId',(req,res)=>{
 	res.sendFile('#',{
 		root:__dirname+'/../',
 	});

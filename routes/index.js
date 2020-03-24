@@ -1,4 +1,4 @@
 module.exports={
 	views:require('./viewRoutes'),
-	//api:require('./apiRoutes'),
+	api:require('./apiRoutes'),
 }
