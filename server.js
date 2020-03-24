@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 
  app.use('/', routes.views);
-// app.use('/api/v1/', routes.api);
+ app.use('/api/v1/', routes.api);
 
 // -------------------------------------- START SERVER -------------------------------------- //
 
