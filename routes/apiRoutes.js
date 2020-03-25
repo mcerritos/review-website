@@ -3,6 +3,8 @@ const router=express.Router();
 const db=require('../models');
 const ctrl=require('../controllers');
 
+<<<<<<< HEAD
+=======
 //Get Games index
 router.get('/games',ctrl.apiCtrl.findAll);
 
@@ -23,3 +25,4 @@ router.delete('/games/:gameId/reviews/:reviewId',ctrl.apiCtrl.deleteReview);
 
 
 module.exports=router;
+>>>>>>> submaster
