@@ -1,6 +1,6 @@
 console.log('Game Index JS...');
 const API_BASE = '/api/v1';
-const cities = document.getElementById('games');
+const games = document.getElementById('games');
 
 //get data
 fetch(`${API_BASE}/games`)
@@ -12,4 +12,29 @@ fetch(`${API_BASE}/games`)
 //render
 function render(gamesArray){
 	console.log(gamesArray); //just for debugging 
+	const gameTemplates=gamesArray.map((game)=>getGameTemplate(game)).join('');
+	games.insertAdjacentHTML('beforeend',gameTemplates);
+}
+
+
+function getGameTemplate(game){
+	console.log('getGameTemplate'); //just for debugging
+	return `
+<div class="container">
+  <div class="row" id="${game.id}">
+    <div class="col-sm">
+      <img src="${game.img}" alt="${game.name}" />
+    </div>
+    <div class="col-sm">
+     <h2> <a href="/games/${game.id}">${game.name}</a></h2>
+     <h5>${game.date}</h5>
+    </div>
+    <div class="col-sm">
+      Has ${game.reviews.length} ${game.reviews.length === 1 ? ' review' : ' reviews'} 
+    </div>
+  </div>
+</div>
+
+
+	`
 }
