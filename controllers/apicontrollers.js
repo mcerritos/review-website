@@ -51,11 +51,11 @@ const createReview = (req, res) => {
 				return res.status(400).json({status: 400, error: 'game not found!'})
 			}
 
-		foundGame.posts.push(newReview);
+		foundGame.reviews.push(newReview);
 
-		foundCity.save( (err, savedCity) => {
+		foundGame.save( (err, savedGame) => {
 		        if (err) {
-		          return res.status(400).json({status: 400, error: 'Unable to save city.'});
+		          return res.status(400).json({status: 400, error: 'Unable to save Game.'});
 		        }
 		  })
 	  })
@@ -73,7 +73,7 @@ const updateReview = (req, res) => {
 			updatingReview.title = req.body.title;
 			updatingReview.content = req.body.content;
 
-			foundCity.save((err, savedCity) => {
+			foundGame.save((err, savedGame) => {
 			      if (err) {
 			        return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 			      }
