@@ -81,13 +81,13 @@ const updateReview = (req, res) => {
 
 			foundGame.save((err, savedGame) => {
 			      if (err) {
-			        return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+			        return res.status(400).json({status: 400, error: 'game was not saved'});
 			      }
 
             //Update Review
 			      db.Review.findByIdAndUpdate(req.params.reviewId, req.body, {new: true}, (err, updatedReview) => {
 			        if (err) {
-			          return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+			          return res.status(400).json({status: 400, error: 'final review update was not possible.'});
 			        }
 
 			        res.json(updatedReview);
@@ -126,7 +126,6 @@ const deleteReview = (req, res) => {
     });
   });
 };
-
 
 module.exports = {
   findAll,
