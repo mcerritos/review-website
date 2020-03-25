@@ -4,12 +4,12 @@ const db=require('./models');
 const games=[
 	{
 		name:'test data 1',
-		data:new Date('2012-02-02'),
+		data:new Date('01.02.2012').toString(),
 		image:'#'
 	},
 	{
 		name:'test data 2',
-		data:new Date('2018-08-08'),
+		data:Date.now,
 		image:'#'
 	}
 ];
