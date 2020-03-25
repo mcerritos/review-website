@@ -19,20 +19,18 @@ const reviewTest={
 	content:'review content test'
 }
 
-db.Game.create(games,(err,newgames)=>{//run it first 
-	if(err){
-		console.log(err);
-		process.exit();
-	}
-	console.log(`${newgames.length} games add`);
 
+// run this file to create new database entries
+// db.Game.create(games,(err,newgames)=>{//run it first 
+// 	if(err){
+// 		console.log(err);
+// 		process.exit();
+// 	}
+// 	console.log(`${newgames.length} games add`);
+// 	process.exit();
+// });
 
-
-
-	process.exit();
-});
-
-	db.Review.create(reviewTest,(err,newview)=>{ //run it after create games, create a view and push to first game
+db.Review.create(reviewTest,(err,newview)=>{ //run it after create games, create a view and push to first game
 	if(err){
 		console.log(err);
 		process.exit();
