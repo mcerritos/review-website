@@ -13,7 +13,7 @@ const findAll = (req, res) => {
 
 // this returns a json object with one game
 const findOne = (req, res) => {
-  db.Game.findById(req.params.id, (err, foundGame) => {
+  db.Game.findById(req.params.gameId, (err, foundGame) => {
     if (err) {
       return res.status(400).json({status: 400, error: 'Game not found.'});
     }
@@ -57,8 +57,9 @@ const createReview = (req, res) => {
 		        if (err) {
 		          return res.status(400).json({status: 400, error: 'Unable to save city.'});
 		        }
-		})
-	})
+		  })
+	  })
+  })
 };
 
 const updateReview = (req, res) => {
