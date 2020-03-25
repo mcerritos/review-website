@@ -1,6 +1,6 @@
 const db = require('../models');
 
-//this returns a json object of all cities
+//this returns a json object of all things in database
 const findAll = (req, res) => {
   db.Game.find({}, (err, allGames) => {
     if (err) {
@@ -28,10 +28,10 @@ const findReview = (req, res ) => {
       return res.status(400).json({status: 400, error: 'Something went wrong'});
     }
 
-    // Find Post
+    // Find RV
     const foundReview = foundGame.reviews.id(req.params.reviewId);
 
-    // Verify Post Found
+    // Check if RV
     if (!foundReview) {
       return res.status(400).json({status: 400, error: 'Could not find review'});
     }
@@ -43,7 +43,7 @@ const findReview = (req, res ) => {
 const createReview = (req, res) => {
 	db.Review.create(req.body, (err, newReview) => {
 		if (err) {
-		     return res.status(500).json({status: 400, error: 'database error!'});
+		     return res.status(500).json({status: 500, error: 'database error!'});
 		   }
 
 		db.Game.findById(req.params.gameId, (err, foundGame) => {
@@ -57,6 +57,8 @@ const createReview = (req, res) => {
 		        if (err) {
 		          return res.status(400).json({status: 400, error: 'Unable to save Game.'});
 		        }
+
+            return res.status(201).json({status: 201, message: "review saved!"})
 		  })
 	  })
   })
@@ -68,7 +70,11 @@ const updateReview = (req, res) => {
 				return res.status(400).json({status: 400, error: 'game not found!'})
 			}
 
-			const updatingReview = foundGame.posts.id(req.params.reviewId);
+			let updatingReview = foundGame.reviews.id(req.params.reviewId);
+
+      if (!updatingReview) {
+        return res.status(400).json({status: 400, message: "could not find review"})
+      }
 
 			updatingReview.title = req.body.title;
 			updatingReview.content = req.body.content;
@@ -78,13 +84,13 @@ const updateReview = (req, res) => {
 			        return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 			      }
 
-			// Update Post in Post Collection
-			      db.Review.findByIdAndUpdate(req.params.postId, req.body, {new: true}, (err, updatedPost) => {
+            //Update Review
+			      db.Review.findByIdAndUpdate(req.params.reviewId, req.body, {new: true}, (err, updatedReview) => {
 			        if (err) {
 			          return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 			        }
 
-			        res.json(updatedPost);
+			        res.json(updatedReview);
 				});
 			})
 		})
@@ -96,7 +102,7 @@ const deleteReview = (req, res) => {
       return res.status(400).json({status: 400, error: 'Game not found! :('});
     }
 
-    // Find Post By ID
+    // Find By ID
     const removeReview = foundGame.reviews.id(req.params.reviewId);
 
     if (!removeReview) {
@@ -109,13 +115,13 @@ const deleteReview = (req, res) => {
         return res.status(400).json({status: 400, error: 'Your game was not saved'});
       }
 
-      // Delete Post From Post Collection
+      // Delete Review
       db.Review.findByIdAndDelete(req.params.reviewId, (err, deletedReview) => {
         if (err) {
           return res.status(400).json({status: 400, error: 'Something went wrong, review was not deleted'});
         }
 
-        res.json(deletedPost);
+        res.json(deletedReview);
       });
     });
   });
