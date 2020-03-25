@@ -4,12 +4,12 @@ const db=require('./models');
 const games=[
 	{
 		name:'test data 1',
-		data:'2012-2-2',
+		data:new Date('2012-02-02'),
 		image:'#'
 	},
 	{
 		name:'test data 2',
-		data:Date.now(),
+		data:new Date('2018-08-08'),
 		image:'#'
 	}
 ];
@@ -19,18 +19,20 @@ const reviewTest={
 	content:'review content test'
 }
 
+db.Game.create(games,(err,newgames)=>{//run it first 
+	if(err){
+		console.log(err);
+		process.exit();
+	}
+	console.log(`${newgames.length} games add`);
 
-// run this file to create new database entries
-// db.Game.create(games,(err,newgames)=>{//run it first 
-// 	if(err){
-// 		console.log(err);
-// 		process.exit();
-// 	}
-// 	console.log(`${newgames.length} games add`);
-// 	process.exit();
-// });
 
-db.Review.create(reviewTest,(err,newview)=>{ //run it after create games, create a view and push to first game
+
+
+	process.exit();
+});
+
+	db.Review.create(reviewTest,(err,newview)=>{ //run it after create games, create a view and push to first game
 	if(err){
 		console.log(err);
 		process.exit();
