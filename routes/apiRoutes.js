@@ -16,10 +16,11 @@ router.get('/games/:gameId/reviews/:reviewId',ctrl.apiCtrl.findReview);
 router.post('/games/:gameId/reviews',ctrl.apiCtrl.createReview);
 
 //update review
-router.put('/games:gameId/reviews/:reviewId',ctrl.apiCtrl.updateReview);
+router.put('/games/:gameId/reviews/:reviewId',ctrl.apiCtrl.updateReview);
 
 //delete review
 router.delete('/games/:gameId/reviews/:reviewId',ctrl.apiCtrl.deleteReview);
 
 
 module.exports=router;
+

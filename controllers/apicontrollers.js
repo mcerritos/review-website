@@ -13,7 +13,7 @@ const findAll = (req, res) => {
 
 // this returns a json object with one game
 const findOne = (req, res) => {
-  db.Game.findById(req.params.id, (err, foundGame) => {
+  db.Game.findById(req.params.gameId, (err, foundGame) => {
     if (err) {
       return res.status(400).json({status: 400, error: 'Game not found.'});
     }
@@ -51,14 +51,15 @@ const createReview = (req, res) => {
 				return res.status(400).json({status: 400, error: 'game not found!'})
 			}
 
-		foundGame.posts.push(newReview);
+		foundGame.reviews.push(newReview);
 
-		foundCity.save( (err, savedCity) => {
+		foundGame.save( (err, savedGame) => {
 		        if (err) {
-		          return res.status(400).json({status: 400, error: 'Unable to save city.'});
+		          return res.status(400).json({status: 400, error: 'Unable to save Game.'});
 		        }
-		})
-	})
+		  })
+	  })
+  })
 };
 
 const updateReview = (req, res) => {
@@ -72,7 +73,7 @@ const updateReview = (req, res) => {
 			updatingReview.title = req.body.title;
 			updatingReview.content = req.body.content;
 
-			foundCity.save((err, savedCity) => {
+			foundGame.save((err, savedGame) => {
 			      if (err) {
 			        return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 			      }
