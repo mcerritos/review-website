@@ -18,8 +18,16 @@ app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json());
 
 // routes
-app.use('/', routes.views);
-app.use('/api/v1/', routes.api);
+<<<<<<< HEAD
+=======
+// app.get('/', (req, res) => {
+// 	res.status(302);
+// })
+
+
+ app.use('/', routes.views);
+ app.use('/api/v1/', routes.api);
+>>>>>>> submaster
 
 // -------------------------------------- START SERVER -------------------------------------- //
 

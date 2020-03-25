@@ -3,14 +3,26 @@ const router=express.Router();
 const db=require('../models');
 const ctrl=require('../controllers');
 
-// GET Cities Index
-router.get('/games', ctrl.apiCtrl.findAll);
-router.get('/games/:gameId', ctrl.apiCtrl.findOne);
+<<<<<<< HEAD
+=======
+//Get Games index
+router.get('/games',ctrl.apiCtrl.findAll);
 
-// CRUD REVIEW ROUTES
-router.get('/games/:gameId/reviews/:reviewId', ctrl.apiCtrl.findReview);
-router.post('/games/:gameId/reviews', ctrl.apiCtrl.createReview);
-router.put('/games/:gameId/reviews/:reviewId', ctrl.apiCtrl.updateReview);
-router.delete('/games/:gameId/review/:reviewId', ctrl.apiCtrl.deleteReview);
+//Get game info
+router.get('/games/:gameId',ctrl.apiCtrl.findOne);
 
-module.exports = router;
+//Get review 
+router.get('/games/:gameId/reviews/:reviewId',ctrl.apiCtrl.findReview);
+
+//post review
+router.post('/games/:gameId/reviews',ctrl.apiCtrl.createReview);
+
+//update review
+router.put('/games:gameId/reviews/:reviewId',ctrl.apiCtrl.updateReview);
+
+//delete review
+router.delete('/games/:gameId/reviews/:reviewId',ctrl.apiCtrl.deleteReview);
+
+
+module.exports=router;
+>>>>>>> submaster
