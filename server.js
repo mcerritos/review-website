@@ -15,6 +15,7 @@ const routes = require('./routes');
 // middleware
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // routes
 app.use('/', routes.views);
