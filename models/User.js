@@ -18,8 +18,8 @@ const UserSchema = new mongoose.Schema({
 	password: {
 		type: String,
 		required: true,
-		// minlength: 4,
-}, {timestamps: true});
+		}
+	});
 
 const User = mongoose.model('User',UserSchema);
 
