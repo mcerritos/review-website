@@ -10,7 +10,7 @@ router.get('/games',ctrl.apiCtrl.findAll);
 router.get('/games/:gameId',ctrl.apiCtrl.findOne);
 
 //get game by name
-router.get('/games/search/:keywords', ctrl.apiCtrl.keywordSearch);
+router.post('/games/search/:keywords', ctrl.apiCtrl.keywordSearch);
 
 //Get review 
 router.get('/games/:gameId/reviews/:reviewId',ctrl.apiCtrl.findReview);
