@@ -18,12 +18,11 @@ const UserSchema = new mongoose.Schema({
 	password: {
 		type: String,
 		required: true,
-<<<<<<< HEAD
-=======
+
 		// minlength: 4,
 	}
 }, {timestamps: true});
->>>>>>> submaster
+
 
 const User = mongoose.model('User',UserSchema);
 

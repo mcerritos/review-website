@@ -3,20 +3,25 @@ const db=require('./models');
 
 const games=[
 	{
-		name:'test data 1',
+		name:'Mushroom Collector',
 		date:new Date('2016,09,30'),
-		image:'#'
+		image:'/images/startscreen.png'
 	},
 	{
-		name:'test data 2',
+		name:'Simply Shooting game',
 		date:new Date(Date.now()),
-		image:'#'
+		image:'/images/Selection_001.png'
 	}
 ];
 
-const reviewTest={
-	title:'review title test',
-	content:'review content test'
+const reviewTest1={
+	title:'best strategy game',
+	content:'best strategy game'
+}
+
+const reviewTest2={
+	title:'shooting game',
+	content:"shoot'em up"
 }
 
 db.Game.create(games,(err,newgames)=>{//run it first 
@@ -24,21 +29,17 @@ db.Game.create(games,(err,newgames)=>{//run it first
 		console.log(err);
 		process.exit();
 	}
-	console.log(`${newgames.length} games add`);
+	console.log(`${newgames.length} games added`);
 
 
 
-
-	process.exit();
-});
-
-	db.Review.create(reviewTest,(err,newview)=>{ //run it after create games, create a view and push to first game
+	db.Review.create(reviewTest1,(err,newview)=>{ //run it after create games, create a view and push to first game
 	if(err){
 		console.log(err);
 		process.exit();
 	}
 	console.log(newview);
-	db.Game.findOne({},(err,foundgame)=>{
+	db.Game.findOne({name:'Mushroom Collector'},(err,foundgame)=>{
 		if(err){
 		console.log(err);
 		process.exit();
@@ -55,3 +56,33 @@ db.Game.create(games,(err,newgames)=>{//run it first
 
 	})
 });
+
+db.Review.create(reviewTest2,(err,newview)=>{ //run it after create games, create a view and push to first game
+	if(err){
+		console.log(err);
+		process.exit();
+	}
+	console.log(newview);
+	db.Game.findOne({name:'Simply Shooting game'},(err,foundgame)=>{
+		if(err){
+		console.log(err);
+		process.exit();
+	}
+		console.log(foundgame);
+		foundgame.reviews.push(newview);
+		foundgame.save((err,savegame)=>{
+			if(err){
+				console.log(err);
+				process.exit();
+			}
+			console.log(savegame);
+		})
+
+	})
+});
+
+
+	//process.exit();
+});
+
+	
