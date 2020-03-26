@@ -1,4 +1,8 @@
 const db = require('../models');
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+app.use(bodyParser.json());
 
 //this returns a json object of all things in database
 const findAll = (req, res) => {
@@ -20,6 +24,22 @@ const findOne = (req, res) => {
 
     res.json(foundGame);
   });
+};
+
+const keywordSearch = (req, res) => {
+  db.Game.find({ name: {$in: req.body.keys} }, (err, relevantGames) => {
+    if (err) {
+      console.log(err);
+      process.exit();
+    }
+
+    res.json(req.body.keys);
+
+    // if(!relevantGames) {
+    //   res.status(400).json({message: "No relevant games found!"});
+    // }
+    // res.json(relevantGames);
+  })
 };
 
 const findReview = (req, res ) => {
@@ -130,6 +150,7 @@ const deleteReview = (req, res) => {
 module.exports = {
   findAll,
   findOne,
+  keywordSearch,
   findReview, 
   createReview,
   updateReview, 
