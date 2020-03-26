@@ -41,8 +41,8 @@ router.get('/games/:gameId/reviews/new',(req,res)=>{
 });
 
 //review edit view
-router.get('/games/:gameId/reviews/:reviewId',(req,res)=>{
-	res.sendFile('#',{
+router.get('/games/:gameId/reviews/:reviewId/edit',(req,res)=>{
+	res.sendFile('views/reviewEdit.html',{
 		root:__dirname+'/../',
 	});
 });
