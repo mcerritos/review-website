@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Based | Game Info</title>
+	<title>based | index of games</title>
+</head>
+<body>
 
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -11,9 +13,10 @@
 	<link rel="stylesheet" href="../public/styles/main.css">
 
 	<!-- Main JS -->
-	<script defer src="/scripts/gameinfo.js"></script>
-</head>
-<body>
+	<script defer src="/scripts/reviewEdit.js"></script>
+
+	
+</body>
 
 	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-warning">
@@ -42,12 +45,11 @@
 	</nav>
 
 	<!-- main -->
-<main class="mb-5">
-    <section id="game" class="container"></section>
-    <section class="container mb-5">
-      <form id="newReview" class="row">
+	<main>
+		 <section class="container mb-5">
+      <form id="editReview" class="row">
         <div class="col-md-6 offset-md-3">
-          <h4 class="mb-4">New review</h4>
+          <h2 class="mb-4">Edit Review</h2>
           <div class="form-group">
             <label for="title">Title</label>
             <input id="title" type="text" name="title" class="form-control form-control-lg" />
@@ -56,14 +58,13 @@
             <label for="content">Content</label>
             <textarea id="content" name="content" class="form-control form-control-lg" rows="10"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary float-right">Add New review</button>
+          <button type="submit" class="btn btn-primary float-right">Save</button>
         </div>
       </form>
     </section>
-  </main>
-<!-- input review  -->
-	
+
+	</main>
 	<!-- footer -->
 	
-</body>
+
 </html>
