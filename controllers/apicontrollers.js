@@ -27,15 +27,13 @@ const findOne = (req, res) => {
 };
 
 const keywordSearch = (req, res) => {
-  db.Game.find({ name: {$in: req.params.keywords} }, (err, relevantGames) => {
+  db.Game.find({ name: req.params.keywords }, (err, relevantGames) => {
     if (err) {
       console.log(err);
       process.exit();
     }
 
-    res.json(req.body.keys);
-
-    if(!relevantGames) {
+    if(relevantGames.length < 1) {
       res.status(400).json({message: "No relevant games found!"});
     }
     res.json(relevantGames);
