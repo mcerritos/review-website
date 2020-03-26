@@ -28,7 +28,7 @@ function getGameTemplate(game){ //not post review button yet
 	return `
 	<div id="${game._id}" class="col-md-8 offset-md-2" >
 		<h2>${game.name}</h2>
-		<img src="${game.image}" class="img-fluid mb-3" width="100%" />
+		<img src="${game.image}" class="img-fluid img-thumbnail"  />
 		<section>
 			${getReviewTemplates(game.reviews)}
 		</section>
