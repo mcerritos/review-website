@@ -1,9 +1,19 @@
+body {
+	font-family: 'Roboto Slab', serif;
+}
+
+.nav-link {
+	font-weight: bold;
+	border-style: thin solid white;
+}
+
 footer p, footer a {
 	display: inline;
 	align-items: center;
 }
 
 #cc {
-	margin: 0 auto;
+	margin-top: 10vh;
 }
+
 
