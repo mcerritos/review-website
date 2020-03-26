@@ -15,6 +15,6 @@ mongoose.connect(DB_URI, {
   module.exports={
 	Game:require('./Game'),
 	Review:require('./Review'),
-	//User:require('./User'),
+	User:require('./User'),
 
   }
