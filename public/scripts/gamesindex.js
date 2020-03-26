@@ -22,12 +22,12 @@ function getGameTemplate(game){
 	let date=new Date(game.date)
 	return `
 <div class="container">
-  <div class="row" id="${game.id}">
+  <div class="row" id="${game._id}">
     <div class="col-sm">
       <img src="${game.img}" alt="${game.name}" />
     </div>
     <div class="col-sm">
-     <h2> <a href="/games/${game.id}">${game.name}</a></h2>
+     <h2> <a href="/games/${game._id}">${game.name}</a></h2>
      <h5>${date.getMonth()}-${date.getDate()}-${date.getFullYear()}</h5>
     </div>
     <div class="col-sm">
