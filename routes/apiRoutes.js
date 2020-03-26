@@ -9,6 +9,9 @@ router.get('/games',ctrl.apiCtrl.findAll);
 //Get game info
 router.get('/games/:gameId',ctrl.apiCtrl.findOne);
 
+//get game by name
+router.get('/games/search/:keywords', ctrl.apiCtrl.keywordSearch);
+
 //Get review 
 router.get('/games/:gameId/reviews/:reviewId',ctrl.apiCtrl.findReview);
 
