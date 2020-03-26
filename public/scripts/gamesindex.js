@@ -19,15 +19,16 @@ function render(gamesArray){
 
 function getGameTemplate(game){
 	console.log('getGameTemplate'); //just for debugging
+	let date=new Date(game.date)
 	return `
 <div class="container">
-  <div class="row" id="${game.id}">
+  <div class="row" id="${game._id}">
     <div class="col-sm">
       <img src="${game.img}" alt="${game.name}" />
     </div>
     <div class="col-sm">
-     <h2> <a href="/games/${game.id}">${game.name}</a></h2>
-     <h5>${game.date}</h5>
+     <h2> <a href="/games/${game._id}">${game.name}</a></h2>
+     <h5>${date.getMonth()}-${date.getDate()}-${date.getFullYear()}</h5>
     </div>
     <div class="col-sm">
       Has ${game.reviews.length} ${game.reviews.length === 1 ? ' review' : ' reviews'} 
