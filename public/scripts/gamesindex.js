@@ -24,7 +24,7 @@ function getGameTemplate(game){
 <div class="container">
   <div class="row" id="${game._id}">
     <div class="col-sm">
-      <img src="${game.img}" alt="${game.name}" />
+      <img src="${game.image}" class="img-thumbnail" alt="${game.name}" />
     </div>
     <div class="col-sm">
      <h2> <a href="/games/${game._id}">${game.name}</a></h2>
