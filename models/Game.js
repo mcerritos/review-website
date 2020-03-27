@@ -6,6 +6,7 @@ const GameSchema=new mongoose.Schema({
 	name:String,
 	date:Date,
 	image:String,
+	genre: Array,
 	reviews:[Review.schema],
 });
 
