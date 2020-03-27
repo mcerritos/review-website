@@ -9,7 +9,7 @@ function handleSignupSubmit(event) {
   event.preventDefault();
 
 
-  const username = document.getElementById('username').value;
+  const username = document.getElementById('uname').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
@@ -34,7 +34,7 @@ function handleSignupSubmit(event) {
     .then((res) => {
       if (res.status === 201) {
         console.log(res);
-        window.location = '/login';
+        window.location = '/';
       } else {
         console.log(res);
       }
