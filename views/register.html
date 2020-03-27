@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Based | Register For An Account!</title>
+
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<!-- Main CSS -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles/main.css">
+
+	<!-- Main JS -->
+	<script defer src="scripts/register.js"></script>
+</head>
+<body>
+	<!-- navbar -->
+	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-warning">
+	  <a class="navbar-brand" href="/">BASED</a>
+
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav nav-pills mr-auto ml-3 p-2">
+	      <li class="nav-item ml-1">
+	        <a class="nav-link" href="/">Home</a>
+	      </li>
+	      <li class="nav-item ml-1">
+	        <a class="nav-link" href="/games">Games</a>
+	      </li>
+	      <li class="nav-item ml-1">
+	        <a class="nav-link" href="/about">About</a>
+	      </li>
+	    </ul>
+	    <form id="search" class="form-inline my-2 my-lg-0">
+	      <input id="bar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+	    </form>
+	  </div>
+	</nav>
+
+	<!-- main -->
+	<div class="container register-form">
+	            <div class="form">
+	                <div class="note">
+	                    <p>Register for a Based Account!</p>
+	                </div>
+
+	                <div class="form-content">
+	                    <div class="row">
+	                        <div class="col-md-6">
+	                            <div class="form-group">
+	                                <input type="text" class="form-control" placeholder="User Name" value=""/>
+	                            </div>
+	                            <div class="form-group">
+	                                <input type="text" class="form-control" placeholder="Email Address" value=""/>
+	                            </div>
+	                        </div>
+	                        <div class="col-md-6">
+	                            <div class="form-group">
+	                                <input type="text" class="form-control" placeholder="Your Password *" value=""/>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <button type="button" class="btnSubmit">Submit</button>
+	                </div>
+	            </div>
+	        </div>
+
+	        <!-- footer -->
+	        <footer class="container fixed-bottom bg-warning">
+	        	<p>BASED designed by</p>
+	        	<a href="https://www.linkedin.com/in/melody-cerritos/">Melody Cerritos</a>
+	        	<p>and</p>
+	        	<a href="https://www.linkedin.com/in/canhua-huang/">Canhua Huang</a>
+	        </footer>
+</body>
+</html>
