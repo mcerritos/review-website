@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(session({
   store: new MongoStore({
-    url: process.env.MONGODB_URI || 'mongodb://localhost:27017/express-cities',
+    url: process.env.MONGODB_URI || 'mongodb://localhost:27017/base',
   }),
   secret: process.env.SESSION_SECRET || 'Supercalifragiliticex[eali34899849838020iljsljsojh',
   resave: false,
