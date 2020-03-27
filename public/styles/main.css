@@ -7,9 +7,17 @@ body {
 	border-style: thin solid white;
 }
 
+.navbar {
+	margin-bottom: 5vh;
+}
+
 footer p, footer a {
 	display: inline;
 	align-items: center;
+}
+
+#tagline p, #tagline a {
+	display: inline;
 }
 
 #cc {
@@ -22,4 +30,8 @@ footer p, footer a {
 
 #signup {
 	margin-top: 15vh;
+}
+
+.card-image-top {
+	max-width: 10vw;
 }
