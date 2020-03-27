@@ -27,7 +27,7 @@ const register=(req,res)=>{
 
 const login=(req,res)=>{
   res.status(200);
-	db.User.findOne({email: req.body.email}, (err, foundUser) => {
+	db.User.findOne({username: req.body.username}, (err, foundUser) => {
 		 if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 
     // Verify User Account Exists
