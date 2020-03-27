@@ -9,8 +9,7 @@ const register=(req,res)=>{
 
     //try not salt data 
     const userData = {
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
+          username: req.body.username,
           email: req.body.email,
           password: req.body.password,
         }
@@ -39,8 +38,7 @@ const login=(req,res)=>{
     	if(foundUser.password==req.body.password){
     		req.session.currentUser = {
           _id: foundUser._id,
-          firstName: foundUser.firstName,
-          lastName: foundUser.lastName,
+          username: foundUser.username,
           email: foundUser.email,
         };
         res.status(200).json({status: 200, user: req.session.currentUser});
