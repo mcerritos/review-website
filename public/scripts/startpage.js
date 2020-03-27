@@ -1,5 +1,10 @@
 console.log("Is this thing on...?");
 const searchBar = document.querySelector('#search');
+$(document).ready(function(){
+        $("#myCarousel").carousel();
+
+    
+});
 
 searchBar.addEventListener( 'submit', (event) => {
 	event.preventDefault();
@@ -27,3 +32,4 @@ function transport(game){
 	console.log(`http://localhost:4000/api/v1/games/${result}`);
 	window.location.href = `http://localhost:4000/games/${result}`;
 };
+
