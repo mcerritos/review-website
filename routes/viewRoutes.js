@@ -29,6 +29,12 @@ router.get('/games/:gameId',(req,res)=>{
 	})
 });
 
+//register page view
+router.get('/register',(req,res)=>{
+	res.sendFile('views/register.html',{
+		root:__dirname+'/../',
+	});
+});
 
 //---------------------------REVIEW-----------
 //TODO:every thing of review

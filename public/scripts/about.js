@@ -1,4 +1,5 @@
-console.log("Is this thing on...?");
+console.log("Ask me about salt.");
+
 const searchBar = document.querySelector('#search');
 
 searchBar.addEventListener( 'submit', (event) => {
