@@ -1,7 +1,10 @@
+/*universal styles*/
+
 body {
 	font-family: 'Roboto Slab', serif;
 }
 
+/*nav-styles*/
 .nav-link {
 	font-weight: bold;
 	border-style: thin solid white;
@@ -11,27 +14,41 @@ body {
 	margin-bottom: 5vh;
 }
 
+/*footer-styles*/
 footer p, footer a {
 	display: inline;
 	align-items: center;
 }
 
+/*start page styles*/
+
 #tagline p, #tagline a {
 	display: inline;
+}
+
+#tagline a {
+	color: black;
+	font-weight: normal;
 }
 
 #cc {
 	margin-top: 10vh;
 }
 
+#carousel-item {
+	max-width: 50vw;
+}
+
+/*about pages styles*/
 #profiles {
 	margin-top: 12vh;
 }
 
-#signup {
-	margin-top: 15vh;
-}
-
 .card-image-top {
 	max-width: 10vw;
+}
+
+/*register page styles*/
+#signup {
+	margin-top: 15vh;
 }

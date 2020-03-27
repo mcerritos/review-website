@@ -38,6 +38,8 @@ router.delete('/logout', ctrl.authCtrl.logout);
 //check user login
 router.get('/verify', ctrl.authCtrl.verify);
 
+//find user
+router.get('/profile', ctrl.authCtrl.findUser);
 
 module.exports=router;
 
