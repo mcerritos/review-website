@@ -9,8 +9,7 @@ const register=(req,res)=>{
 
     //try not salt data 
     const userData = {
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
+          username: req.body.username,
           email: req.body.email,
           password: req.body.password,
         }
@@ -27,7 +26,8 @@ const register=(req,res)=>{
 
 
 const login=(req,res)=>{
-	db.User.findOne({email: req.body.email}, (err, foundUser) => {
+  res.status(200);
+	db.User.findOne({username: req.body.username}, (err, foundUser) => {
 		 if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 
     // Verify User Account Exists
@@ -35,13 +35,13 @@ const login=(req,res)=>{
       	return res.status(400).json({status: 400, message: 'Invalid credentials'});
     }
 
-    	if(foundUser.password===req.body.password){
+    	if(foundUser.password==req.body.password){
     		req.session.currentUser = {
           _id: foundUser._id,
-          firstName: foundUser.firstName,
-          lastName: foundUser.lastName,
+          username: foundUser.username,
           email: foundUser.email,
         };
+        res.status(200).json({status: 200, user: req.session.currentUser});
     	}else{
     		 res.status(400).json({status: 400, error: 'Invalid credentials, please try again'});
     	}
@@ -80,9 +80,19 @@ const verify = (req, res) => {
   });
 };
 
+const findUser = (req, res) => {
+  db.User.findById(req.session.currentUser.id, (err, foundUser) => {
+    if (err) {
+      return res.status(400).json({status: 400, error: 'User not found! :('});
+    }
+    res.json(foundUser);
+  });
+};
+
 module.exports = {
   register,
   login,
   logout,
   verify,
+  findUser,
 };

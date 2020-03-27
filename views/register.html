@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>based | reviews </title>
-</head>
-<body>
+	<title>Based | Register For An Account!</title>
+
 	<!-- jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
@@ -13,14 +12,12 @@
 
 	<!-- Main CSS -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="/styles/main.css">
+	<link rel="stylesheet" href="styles/main.css">
 
 	<!-- Main JS -->
-	<script defer src="/scripts/reviewEdit.js"></script>
-
-	
-</body>
-
+	<script defer src="scripts/register.js"></script>
+</head>
+<body>
 	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-warning">
 	  <a class="navbar-brand" href="/">BASED</a>
@@ -53,7 +50,7 @@
 		    <div class="login-container">
 		        <form id="login" class="form-inline">
 		          <input id="username" class="form-control mr-2" type="text" placeholder="Username" name="username">
-		          <input id="psw" class="form-control mr-2" type="text" placeholder="Password" name="psw">
+		          <input id="psw" class="form-control mr-2" type="password" placeholder="Password" name="psw">
 		          <button id="loginbutton" class="btn btn-outline-primary btn-light" type="submit">Login</button>
 		        </form>
 		    </div>
@@ -61,32 +58,41 @@
 	</nav>
 
 	<!-- main -->
-	<main>
-		 <section class="container mb-5">
-      <form id="editReview" class="row">
-        <div class="col-md-6 offset-md-3">
-          <h2 class="mb-4">Edit Review</h2>
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input id="title" type="text" name="title" class="form-control form-control-lg" />
-          </div>
-          <div class="form-group">
-            <label for="content">Content</label>
-            <textarea id="content" name="content" class="form-control form-control-lg" rows="10"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary float-right">Save</button>
-        </div>
-      </form>
-    </section>
+	<div id="signup" class="container register-form">
+	            <div class="form">
+	                <div class="note">
+	                    <p>Register for a Based Account!</p>
+	                </div>
 
-	</main>
-	<!-- footer -->
+	                <div class="form-content">
+	                    <div class="row">
+	                        <div class="col-md-12">
+	                            <div class="form-group">
+	                                <input type="text" id="uname" class="form-control" placeholder="User Name" value=""/>
+	                            </div>
+	                        </div>
+	                        <div class="col-md-12">
+	                            <div class="form-group">
+	                                <input type="text" id="email" class="form-control" placeholder="Email Address" value=""/>
+	                            </div>
+	                        </div>
+	                        <div class="col-md-12">
+	                            <div class="form-group">
+	                                <input type="text" id="password" class="form-control" placeholder="Your Password *" value=""/>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <button type="button" class="btnSubmit">Submit</button>
+	                </div>
+	            </div>
+	        </div>
 
-	<footer class="container fixed-bottom bg-warning">
-		<p>BASED designed by</p>
-		<a href="https://www.linkedin.com/in/melody-cerritos/">Melody Cerritos</a>
-		<p>and</p>
-		<a href="https://www.linkedin.com/in/canhua-huang/">Canhua Huang</a>
-	</footer>
-	
+	        <!-- footer -->
+	        <footer class="container fixed-bottom bg-warning">
+	        	<p>BASED designed by</p>
+	        	<a href="https://www.linkedin.com/in/melody-cerritos/">Melody Cerritos</a>
+	        	<p>and</p>
+	        	<a href="https://www.linkedin.com/in/canhua-huang/">Canhua Huang</a>
+	        </footer>
+</body>
 </html>

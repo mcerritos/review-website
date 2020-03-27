@@ -1,10 +1,6 @@
-console.log("Is this thing on...?");
-const searchBar = document.querySelector('#search');
-$(document).ready(function(){
-        $("#myCarousel").carousel();
+console.log("Ask me about salt.");
 
-    
-});
+const searchBar = document.querySelector('#search');
 
 searchBar.addEventListener( 'submit', (event) => {
 	event.preventDefault();
@@ -14,6 +10,8 @@ searchBar.addEventListener( 'submit', (event) => {
 	$.ajax({
 		method: "POST",
 		url: `http://localhost:4000/api/v1/games/search/${keywords}`,
+		// contentType: 'application/JSON',
+		// data: JSON.stringify({"keys" : words}),
 		success: function (response) {
 			transport(response);
 		},
@@ -30,4 +28,3 @@ function transport(game){
 	console.log(`http://localhost:4000/api/v1/games/${result}`);
 	window.location.href = `http://localhost:4000/games/${result}`;
 };
-

@@ -2,49 +2,118 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>about</title>
+	<title>based | about</title>
 </head>
 <body>
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<!-- Main CSS -->
-	<link rel="stylesheet" href="../public/styles/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/styles/main.css">
+
+	<!-- JS -->
+	<script defer src="scripts/about.js"></script>
 
 </body>
 
 	<!-- navbar -->
-	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-warning">
-	  <a class="navbar-brand" href="#">Based</a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+	  <a class="navbar-brand" href="/">BASED</a>
+
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item">
-	        <a class="nav-link" href="/games">Games</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Index</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/about">About</a>
-	      </li>
-	    </ul>
-	    <!-- <form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	    </form> -->
+		    <ul class="navbar-nav nav-pills mr-auto ml-3 p-2">
+		      <li class="nav-item ml-1">
+		        <a class="nav-link" href="/">Home</a>
+		      </li>
+		      <li class="nav-item ml-1">
+		        <a class="nav-link" href="/games">Games</a>
+		      </li>
+		      <li class="nav-item ml-1">
+		        <a class="nav-link" href="/about">About</a>
+		      </li>
+		      <li class="nav-item ml-1">
+		        <a class="nav-link" href="/register">Register</a>
+		      </li>
+		    </ul>
+
+		    <form id="search" class="form-inline my-2 my-lg-1">
+		      <input id="bar" class="form-control mr-sm-2" type="search" aria-label="Search">
+		      <button class="btn btn-outline-primary btn-light my-2 mr-5 my-sm-0" type="submit">Search</button>
+		    </form>
+
+		    <div class="login-container">
+		        <form id="login" class="form-inline">
+		          <input id="username" class="form-control mr-2" type="text" placeholder="Username" name="username">
+		          <input id="psw" class="form-control mr-2" type="text" placeholder="Password" name="psw">
+		          <button id="loginbutton" class="btn btn-outline-primary btn-light" type="submit">Login</button>
+		        </form>
+		    </div>
 	  </div>
 	</nav>
 
 	<!-- main -->
-	
+	<div class="row justify-content-center">
+		<div class="col-sm-6">
+			<h1> The Product</h1>
+		</div>
+	</div>
+
+	<div class="row justify-content-center my-5">
+		<div class="col-sm-6 mx-auto">
+			<p> BASED is a video game review website built with HTML, CSS, and Javascript.</p>
+			<p> It uses Bootstrap to build a dyanamic frontend and Express and Mongoose to create a backend database.</p>
+			<p> Users can search games, read reviews, create an account, and submit their own reviews.</p>
+		</div>
+	</div>
+
+	<div class="row justify-content-center">
+		<div class="col-sm-6">
+			<h1> The Developers</h1>
+		</div>
+	</div>
+
+	<div id="profiles" class="row justify-content-center mb-5">
+
+	  <div class="col-sm-4 justify-content-center">
+	    <div class="card mx-auto" style="width: 20rem;">
+	    	<img class="card-img-top my-3 rounded-circle" src="images/ch.jpeg" alt="Card image cap">
+	      	<div class="card-body">
+	        	<h5 class="card-title">Canhua Huang</h5>
+	        	<p class="card-text">Canhua Huang is a full-stack developer experienced with C++, Java, Javascript and MySql database. In his spare time, he likes to play video games.</p>
+	       		<a href="https://www.linkedin.com/in/canhua-huang/" class="btn btn-primary">Find him on LinkedIn</a>
+	      	</div>
+	    </div>
+	  </div>
+
+	  <div class="col-sm-4">
+	    <div class="card mx-auto" style="width: 20rem;">
+	    	<img class="card-img-top my-3 rounded-circle" src="images/lmcd.jpeg" alt="Card image cap">
+	      	<div class="card-body">
+	        	<h5 class="card-title">Melody Cerritos</h5>
+	        	<p class="card-text">Melody Cerritos is a historical analyst turned software engineer who enjoys working in javascript and python. She still has some nostalgia for the PS2.</p>
+	        	<a href="https://www.linkedin.com/in/melody-cerritos/" class="btn btn-primary">Find her on LinkedIn</a>
+	      </div>
+	    </div>
+	  </div>
+
+	</div>
 
 	<!-- footer -->
-	<footer class="container fixed-bottom">
-		<p> Footer text </p>
+	<footer class="container bg-warning">
+		<div class="row">
+		<p>BASED designed by </p>
+		<a href="https://www.linkedin.com/in/melody-cerritos/"> Melody Cerritos </a>
+		<p>and </p>
+		<a href="https://www.linkedin.com/in/canhua-huang/"> Canhua Huang </a>
+		</div>
 	</footer>
 
 </html>
