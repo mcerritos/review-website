@@ -11,6 +11,41 @@ const games=[
 		name:'Simply Shooting game',
 		date:new Date(Date.now()),
 		image:'/images/Selection_001.png'
+	},
+	{
+		name:'Pac-Man',
+		date:new Date('1980,07,01'),
+		image:'/images/pacman.jpg'
+	},
+	{
+		name:'Final Fantasy VII',
+		date:new Date('1997,1,31'),
+		image:'/images/ff7.jpg'
+	},
+	{
+		name:'Fallout 2',
+		date:new Date('1998,10,29'),
+		image:'/images/FO2.jpg'
+	},
+	{
+		name:'Halo: Combat Evolved',
+		date:new Date('2001,11,15'),
+		image:'/images/Halo.jpg'
+	},
+	{
+		name:'Super Mario World',
+		date:new Date('1990,11,21'),
+		image:'/images/mario_w.jpg'
+	},
+	{
+		name:'Metal Gear Solid',
+		date:new Date('1998,09,03'),
+		image:'/images/MGS.jpg'
+	},
+	{
+		name:'Zelda ',
+		date:new Date('1998,11,21'),
+		image:'/images/OOT.jpg'
 	}
 ];
 
