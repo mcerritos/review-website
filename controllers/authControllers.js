@@ -27,6 +27,7 @@ const register=(req,res)=>{
 
 
 const login=(req,res)=>{
+  res.status(200);
 	db.User.findOne({email: req.body.email}, (err, foundUser) => {
 		 if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
 
@@ -35,13 +36,14 @@ const login=(req,res)=>{
       	return res.status(400).json({status: 400, message: 'Invalid credentials'});
     }
 
-    	if(foundUser.password===req.body.password){
+    	if(foundUser.password==req.body.password){
     		req.session.currentUser = {
           _id: foundUser._id,
           firstName: foundUser.firstName,
           lastName: foundUser.lastName,
           email: foundUser.email,
         };
+        res.status(200).json({status: 200, user: req.session.currentUser});
     	}else{
     		 res.status(400).json({status: 400, error: 'Invalid credentials, please try again'});
     	}
