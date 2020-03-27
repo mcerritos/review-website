@@ -29,21 +29,33 @@
 	  </button>
 
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav nav-pills mr-auto ml-3 p-2">
-	      <li class="nav-item ml-1">
-	        <a class="nav-link" href="/">Home</a>
-	      </li>
-	      <li class="nav-item ml-1">
-	        <a class="nav-link" href="/games">Games</a>
-	      </li>
-	      <li class="nav-item ml-1">
-	        <a class="nav-link" href="/about">About</a>
-	      </li>
-	    </ul>
-	    <form id="search" class="form-inline my-2 my-lg-0">
-	      <input id="bar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-	    </form>
+		    <ul class="navbar-nav nav-pills mr-auto ml-3 p-2">
+		      <li class="nav-item ml-1">
+		        <a class="nav-link" href="/">Home</a>
+		      </li>
+		      <li class="nav-item ml-1">
+		        <a class="nav-link" href="/games">Games</a>
+		      </li>
+		      <li class="nav-item ml-1">
+		        <a class="nav-link" href="/about">About</a>
+		      </li>
+		      <li class="nav-item ml-1">
+		        <a class="nav-link" href="/register">Register</a>
+		      </li>
+		    </ul>
+
+		    <form id="search" class="form-inline my-2 my-lg-1">
+		      <input id="bar" class="form-control mr-sm-2" type="search" aria-label="Search">
+		      <button class="btn btn-outline-primary btn-light my-2 mr-5 my-sm-0" type="submit">Search</button>
+		    </form>
+
+		    <div class="login-container">
+		        <form id="login" class="form-inline">
+		          <input id="username" class="form-control mr-2" type="text" placeholder="Username" name="username">
+		          <input id="psw" class="form-control mr-2" type="text" placeholder="Password" name="psw">
+		          <button id="loginbutton" class="btn btn-outline-primary btn-light" type="submit">Login</button>
+		        </form>
+		    </div>
 	  </div>
 	</nav>
 
