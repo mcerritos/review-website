@@ -80,9 +80,19 @@ const verify = (req, res) => {
   });
 };
 
+const findUser = (req, res) => {
+  db.User.findById(req.session.currentUser.id, (err, foundUser) => {
+    if (err) {
+      return res.status(400).json({status: 400, error: 'User not found! :('});
+    }
+    res.json(foundUser);
+  });
+};
+
 module.exports = {
   register,
   login,
   logout,
   verify,
+  findUser,
 };

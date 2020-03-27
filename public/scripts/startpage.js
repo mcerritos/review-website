@@ -9,8 +9,6 @@ searchBar.addEventListener( 'submit', (event) => {
 	$.ajax({
 		method: "POST",
 		url: `http://localhost:4000/api/v1/games/search/${keywords}`,
-		// contentType: 'application/JSON',
-		// data: JSON.stringify({"keys" : words}),
 		success: function (response) {
 			transport(response);
 		},

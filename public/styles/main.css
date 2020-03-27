@@ -20,8 +20,14 @@ footer p, footer a {
 	display: inline;
 }
 
+#tagline a {
+	color: black;
+	font-weight: normal;
+}
+
 #cc {
 	margin-top: 10vh;
+	max-height: 50vh;
 }
 
 #profiles {
