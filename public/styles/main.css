@@ -1,0 +1,9 @@
+footer p, footer a {
+	display: inline;
+	align-items: center;
+}
+
+#cc {
+	margin: 0 auto;
+}
+
