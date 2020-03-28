@@ -35,8 +35,8 @@ footer p, footer a {
 	margin-top: 10vh;
 }
 
-#carousel-item {
-	max-width: 50vw;
+.d-block {
+	max-height: 50vh;
 }
 
 /*about pages styles*/
