@@ -83,14 +83,15 @@ function getGameTemplate(game){ //not post review button yet
 function getReviewTemplates(reviews){
 	
 	return reviews.map((review)=>{ //user and edit button  not avalible yet
-		let date=new Date(review.updatedAt)
+		console.log(review);
+    let date=new Date(review.updatedAt)
 		if(session.status===200){
 	if(review.user===session.currentUser._id){
 		return`
 		<div class="container" >
 			<div class="row">
 				<div class="col-6 col-md-4" id="${review.user}">
-					<h5>review.user</h5>
+					<h5>${session.currentUser.username}</h5>
 					${date.getMonth()+1}-${date.getDate()}-${date.getFullYear()}
 				</div>
 				<div class="col-12 col-md-8" id="${review._id}">
@@ -108,7 +109,30 @@ function getReviewTemplates(reviews){
 
 		</div>
 
-		`;}
+		`;}else{
+            return`
+    <div class="container" >
+      <div class="row">
+        <div class="col-6 col-md-4" id="${review.user}">
+          <h5>review.user</h5>
+          ${date.getMonth()+1}-${date.getDate()}-${date.getFullYear()}
+        </div>
+        <div class="col-12 col-md-8" id="${review._id}">
+          <article >
+          <h5>${review.title}</h5>
+          <p>
+          ${review.content}
+          </p>
+          </article>
+          
+        </div>
+      </div>
+
+    </div>
+
+    `;
+
+    }
 	}else{
 			return`
 		<div class="container" >
@@ -151,7 +175,8 @@ function deleteReview(event){
 	.then((stream) => stream.json())
     .then((res) => {
       console.log(res);
-      getGame();
+      //getGame();
+      window.location = `/games/${gameId}`;
     })
     .catch((err) => console.log(err));
 }
@@ -185,7 +210,7 @@ reviewForm.addEventListener('submit', (event) => {
     .then((res) => {
       console.log(res);
       if (res.status === 201) {
-        window.location = `/gamess/${gameId}`;
+        window.location = `/games/${gameId}`;
       }
     })
     .catch((err) => console.log(err));
