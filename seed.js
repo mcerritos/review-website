@@ -1,5 +1,5 @@
 const db=require('./models');
-
+const mongoose=require('mongoose');
 
 const games=[
 	{
@@ -58,14 +58,12 @@ const games=[
 	}
 ];
 
-const reviewTest1={
-	title:'best strategy game',
-	content:'best strategy game'
-}
 
-const reviewTest2={
-	title:'shooting game',
-	content:"shoot'em up"
+
+const userTest1={
+	username:'test',
+	email:'test@test.com',
+	password:'1234'
 }
 
 db.Game.create(games,(err,newgames)=>{//run it first 
@@ -75,9 +73,28 @@ db.Game.create(games,(err,newgames)=>{//run it first
 	}
 	console.log(`${newgames.length} games added`);
 
+	db.User.create(userTest1,(err,newUser)=>{
+		if(err){
+		console.log(err);
+		process.exit();
+	}
+	console.log(newUser);
 
 
-	db.Review.create(reviewTest1,(err,newview)=>{ //run it after create games, create a view and push to first game
+const reviewTest1={
+	title:'best strategy game',
+	content:'best strategy game',
+	user:newUser._id
+}
+
+	const reviewTest2={
+	title:'shooting game',
+	content:"shoot'em up",
+	user:newUser._id
+}
+
+
+	db.Review.create(reviewTest1,(err,newview)=>{ 
 	if(err){
 		console.log(err);
 		process.exit();
@@ -124,6 +141,13 @@ db.Review.create(reviewTest2,(err,newview)=>{ //run it after create games, creat
 
 	})
 });
+
+
+
+
+	});
+
+
 
 
 	//process.exit();
