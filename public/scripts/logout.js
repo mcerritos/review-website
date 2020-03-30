@@ -22,9 +22,10 @@ function getSession(session){
 	console.log(session.currentUser._id);
 	$('#login').empty();
 	$('#login').html(`Hi ${session.currentUser.username} &nbsp <button id="logoutbutton" class="btn btn-outline-primary btn-light" type="submit">Logout</button>`);
-	}
-	const btn = document.getElementById('logoutbutton');
-	btn.addEventListener('click', handleLogoutSubmit);
+	 const btn = document.getElementById('logoutbutton');
+  btn.addEventListener('click', handleLogoutSubmit);
+  }
+
 
 }
 function handleLogoutSubmit(event){
