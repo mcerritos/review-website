@@ -84,6 +84,7 @@ function getReviewTemplates(reviews){
 	
 	return reviews.map((review)=>{ //user and edit button  not avalible yet
 		console.log(review);
+    console.log(typeof review.user);
     let date=new Date(review.updatedAt)
 		if(session.status===200){
 	if(review.user===session.currentUser._id){
@@ -114,7 +115,7 @@ function getReviewTemplates(reviews){
     <div class="container" >
       <div class="row">
         <div class="col-6 col-md-4" id="${review.user}">
-          <h5>review.user</h5>
+          <h5>${(review.user).substring(0,3)}*</h5>
           ${date.getMonth()+1}-${date.getDate()}-${date.getFullYear()}
         </div>
         <div class="col-12 col-md-8" id="${review._id}">
@@ -138,7 +139,7 @@ function getReviewTemplates(reviews){
 		<div class="container" >
 			<div class="row">
 				<div class="col-6 col-md-4" id="${review.user}">
-					<h5>review.user</h5>
+					<h5>${(review.user).substring(0,3)}*</h5>
 					${date.getMonth()+1}-${date.getDate()}-${date.getFullYear()}
 				</div>
 				<div class="col-12 col-md-8" id="${review._id}">
