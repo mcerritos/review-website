@@ -1,9 +1,9 @@
 console.log('Login JS...');
-const btn = document.getElementById('loginbutton');
+const btnLogin = document.getElementById('loginbutton');
 
 
 // Submit Event Listener
-btn.addEventListener('click', handleLoginSubmit);
+btnLogin.addEventListener('click', handleLoginSubmit);
 
 // Handle Submit
 function handleLoginSubmit(event) {

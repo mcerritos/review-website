@@ -3,8 +3,29 @@ console.log("game info"); //for debugging //extendtion only let login user can s
 const API_BASE='/api/v1';
 const game=document.getElementById('game');
 const gameId=window.location.pathname.split('/')[2]; //has question
-const reviewForm = document.getElementById('newReview');
+let reviewForm ;
 console.log('game id is:',gameId);
+
+/////////////////////////////////session test
+let session;
+fetch('/api/v1/verify', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'credentials': 'include', // This must be included in all API requests until user logs out
+    },
+
+  })
+    .then((stream) => stream.json())
+    .then((res)=>{
+    	session = res;
+    })
+    .catch((err) => console.log(err));
+
+
+
+
+//////////////////////////////
 
 //get the game
 function getGame(){
@@ -22,6 +43,28 @@ function render(gameObj) {
   const gameTemplate = getGameTemplate(gameObj);
   game.innerHTML = '';
   game.insertAdjacentHTML('beforeend', gameTemplate);
+  if(session.status===200){
+  	const review = document.querySelector(".mb-5");
+  	newReview=`<section class="container mb-5">
+      <form id="newReview" class="row">
+        <div class="col-md-6 offset-md-3">
+          <h4 class="mb-4">New review</h4>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" class="form-control form-control-lg" />
+          </div>
+          <div class="form-group">
+            <label for="content">Content</label>
+            <textarea id="content" name="content" class="form-control form-control-lg" rows="10"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary float-right">Add New review</button>
+        </div>
+      </form>
+    </section>`;
+  review.insertAdjacentHTML('beforeend', newReview);
+  reviewForm= document.getElementById('newReview');
+  addReview();
+  }
 }
 
 function getGameTemplate(game){ //not post review button yet 
@@ -40,12 +83,16 @@ function getGameTemplate(game){ //not post review button yet
 function getReviewTemplates(reviews){
 	
 	return reviews.map((review)=>{ //user and edit button  not avalible yet
-		let date=new Date(review.updatedAt)
+		console.log(review);
+    console.log(typeof review.user);
+    let date=new Date(review.updatedAt)
+		if(session.status===200){
+	if(review.user===session.currentUser._id){
 		return`
 		<div class="container" >
 			<div class="row">
 				<div class="col-6 col-md-4" id="${review.user}">
-					<h5>review.user</h5>
+					<h5>${session.currentUser.username}</h5>
 					${date.getMonth()+1}-${date.getDate()}-${date.getFullYear()}
 				</div>
 				<div class="col-12 col-md-8" id="${review._id}">
@@ -63,7 +110,53 @@ function getReviewTemplates(reviews){
 
 		</div>
 
+		`;}else{
+            return`
+    <div class="container" >
+      <div class="row">
+        <div class="col-6 col-md-4" id="${review.user}">
+          <h5>${(review.user).substring(0,3)}*</h5>
+          ${date.getMonth()+1}-${date.getDate()}-${date.getFullYear()}
+        </div>
+        <div class="col-12 col-md-8" id="${review._id}">
+          <article >
+          <h5>${review.title}</h5>
+          <p>
+          ${review.content}
+          </p>
+          </article>
+          
+        </div>
+      </div>
+
+    </div>
+
+    `;
+
+    }
+	}else{
+			return`
+		<div class="container" >
+			<div class="row">
+				<div class="col-6 col-md-4" id="${review.user}">
+					<h5>${(review.user).substring(0,3)}*</h5>
+					${date.getMonth()+1}-${date.getDate()}-${date.getFullYear()}
+				</div>
+				<div class="col-12 col-md-8" id="${review._id}">
+					<article >
+					<h5>${review.title}</h5>
+					<p>
+					${review.content}
+					</p>
+					</article>
+					
+				</div>
+			</div>
+
+		</div>
+
 		`;
+		}
 	}).join('');
 }
 
@@ -83,12 +176,14 @@ function deleteReview(event){
 	.then((stream) => stream.json())
     .then((res) => {
       console.log(res);
-      getGame();
+      //getGame();
+      window.location = `/games/${gameId}`;
     })
     .catch((err) => console.log(err));
 }
 
 //add new review
+function addReview(){
 reviewForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const title = document.getElementById('title');
@@ -97,6 +192,7 @@ reviewForm.addEventListener('submit', (event) => {
   const newReview = {
     title: title.value,
     content: content.value,
+    user:session.currentUser._id
   };
 
   console.log('Submit', newReview);
@@ -115,8 +211,38 @@ reviewForm.addEventListener('submit', (event) => {
     .then((res) => {
       console.log(res);
       if (res.status === 201) {
-        window.location = `/gamess/${gameId}`;
+        window.location = `/games/${gameId}`;
       }
     })
     .catch((err) => console.log(err));
 });
+}
+
+// search bar functionality
+
+const searchBar = document.querySelector('#search');
+
+searchBar.addEventListener( 'submit', (event) => {
+  event.preventDefault();
+  let keywords = document.getElementById('bar').value;
+  // let words = keywords.split(" ");
+
+  $.ajax({
+    method: "POST",
+    url: `http://localhost:4000/api/v1/games/search/${keywords}`,
+    success: function (response) {
+      transport(response);
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+});
+
+function transport(game){
+  console.log(game);
+  let result = game[0]._id;
+  console.log(result);
+  console.log(`http://localhost:4000/api/v1/games/${result}`);
+  window.location.href = `http://localhost:4000/games/${result}`;
+};

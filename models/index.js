@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const DB_URI=process.env.MONGODB||'mongodb://localhost:27017/base';
+const DB_URI=process.env.MONGODB_URI||'mongodb://localhost:27017/base';
 
 // Connect MongoDB
 mongoose.connect(DB_URI, {
