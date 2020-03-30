@@ -5,7 +5,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // database
 
@@ -37,7 +37,7 @@ app.use('/api/v1/', routes.api);
 
 // -------------------------------------- START SERVER -------------------------------------- //
 
-app.listen(process.env.PORT || 3000, () => console.log(`Server running at http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
 
 
 
